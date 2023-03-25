@@ -1,11 +1,18 @@
-import express from 'express';
-export const app = express();
-const port = 3000;
+import http from 'http';
+import dotenv from 'dotenv';
+import { app } from '@app/app';
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+dotenv.config();
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+const hostname = '127.0.0.1';
+const port = 5000;
+
+const server = http.createServer(app);
+
+const bootstrap = (): void => {
+  server.listen(port, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+  });
+};
+
+bootstrap();
