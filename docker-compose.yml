@@ -7,8 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
-    # env_file:
-    #     - .env
     ports:
       - 5000:5000
     depends_on:
@@ -21,12 +19,13 @@ services:
     image: postgres
     restart: always
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: app-db
+      POSTGRES_DB: blablabla
     ports:
       - 5432:5432
-    volumes:
-      - starter-db-data:/var/lib/postgresql/data
+    # volumes:
+    #   - start_data:/var/lib/postgresql/data
 
   adminer:
     image: adminer
@@ -34,5 +33,5 @@ services:
     ports:
       - 8080:8080
 
-volumes:
-  starter-db-data:
+# volumes:
+#   start_data:
