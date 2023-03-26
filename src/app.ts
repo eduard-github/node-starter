@@ -1,6 +1,6 @@
 import express from 'express';
 export const app = express();
 
-app.get('/', (req, res) => {
+app.all('*', (req, res) => {
   res.send('Hello World!');
 });

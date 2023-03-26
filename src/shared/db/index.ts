@@ -9,6 +9,4 @@ const pool = new Pool({
   port: config.get('database.port')
 });
 
-console.log('DB', pool);
-
 export { pool };
